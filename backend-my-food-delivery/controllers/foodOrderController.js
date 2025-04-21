@@ -1,16 +1,16 @@
-import {CategoryModel} from "../model/foodCategory.js";
+import {foodOrderModel} from "../model/foodOrderModel.js";
 
-export const createFoodCategory = async (req, res) => {
-  const {name} = req.body;
+export const createFoodOrder = async (req, res) => {
+  const {totalPrice} = req.body;
   try {
-    const foodCategory = await CategoryModel.create({
-      name: name,
+    const foodOrder = await foodOrderModel.create({
+      totalPrice: totalPrice,
     });
     return res
       .status(200)
       .send({
         success: true,
-        foodCategory: foodCategory,
+        foodOrder: foodOrder,
       })
       .end();
   } catch (error) {
