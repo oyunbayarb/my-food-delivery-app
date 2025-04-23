@@ -28,3 +28,21 @@ export const createFoodItem = async (req, res) => {
       .end();
   }
 };
+export const getFoodItems = async (req, res) => {
+  try {
+    const foodItems = await foodItemModel.find();
+    return res
+      .status(200)
+      .send({
+        success: true,
+        foodItems: foodItems,
+      })
+      .end();
+  } catch (error) {
+    console.error(error, "error");
+    return res.status(400).send({
+      success: false,
+      message: error,
+    });
+  }
+};
