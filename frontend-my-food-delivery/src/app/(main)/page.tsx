@@ -1,5 +1,5 @@
-import {FoodCategoriesList} from "@/mainComponents";
-import {OneFoodCard} from "@/mainComponents/elements";
+import {SeeAllFoodsPage} from "@/mainComponents";
+import {FoodCategoriesList} from "@/mainComponents/elements";
 
 export default function Home() {
   return (
@@ -11,12 +11,7 @@ export default function Home() {
         ></img>
         <FoodCategoriesList />
         <div className="flex-wrap flex gap-2 size-fit">
-          <OneFoodCard />
-          <OneFoodCard />
-          <OneFoodCard />
-          <OneFoodCard />
-          <OneFoodCard />
-          <OneFoodCard />
+          <SeeAllFoodsPage />
         </div>
       </div>
     </div>

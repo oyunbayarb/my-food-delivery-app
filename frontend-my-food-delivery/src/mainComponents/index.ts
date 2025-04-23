@@ -1,1 +1,2 @@
-export * from "./elements/FoodCategories";
+export * from "@/mainComponents/detailFoodPages";
+export * from "@/mainComponents/elements";

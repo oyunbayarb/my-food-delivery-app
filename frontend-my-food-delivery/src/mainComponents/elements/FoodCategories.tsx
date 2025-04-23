@@ -1,12 +1,5 @@
 "use client";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import {useState, useEffect} from "react";
 import {axiosInstance} from "@/lib/utils";
 
@@ -29,26 +22,20 @@ export const FoodCategoriesList = () => {
   }, []);
 
   return (
-    <div className="flex-col">
+    <div className="flex-col flex gap-3">
       <p className="text-white font-semibold text-[30px]">Categories</p>
-      <Carousel className="flex w-full">
-        <CarouselContent className="w-fit flex p-4 overflow-scroll">
-          {foodCategoryData?.map((element, index) => {
-            return (
-              <div>
-                <CarouselItem key={index}>
-                  <button className="bg-white rounded-full min-w-[116px] flex h-[46px] justify-center items-center">
-                    {element.name}
-                  </button>
-                </CarouselItem>
-              </div>
-            );
-          })}
-        </CarouselContent>
-
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <div className="flex gap-2">
+        {foodCategoryData.map((value, index) => {
+          return (
+            <button
+              key={index}
+              className="min-w-[110px] bg-white rounded-full h-[46px] cursor-pointer hover:scale-105 ease-in-out duration-300 hover:bg-red-500"
+            >
+              {value.name}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };
