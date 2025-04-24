@@ -30,7 +30,7 @@ export const createFoodItem = async (req, res) => {
 };
 export const getFoodItems = async (req, res) => {
   try {
-    const foodItems = await foodItemModel.find();
+    const foodItems = await foodItemModel.find().populate("category");
     return res
       .status(200)
       .send({
@@ -40,9 +40,62 @@ export const getFoodItems = async (req, res) => {
       .end();
   } catch (error) {
     console.error(error, "error");
-    return res.status(400).send({
-      success: false,
-      message: error,
-    });
+    return res
+      .status(400)
+      .send({
+        success: false,
+        message: error,
+      })
+      .end();
+  }
+};
+
+export const getFoodItemsById = async (req, res) => {
+  const {id} = req.params;
+  try {
+    const food = await foodItemModel.findById(id).populate("category");
+    return res
+      .status(200)
+      .send({
+        succes: true,
+        food: food,
+      })
+      .end();
+  } catch (error) {
+    console.error(error, "error");
+    return res
+      .status(400)
+      .send({
+        success: false,
+        message: error,
+      })
+      .end();
+  }
+};
+
+export const getFoodsByCategoryId = async (req, res) => {
+  const {categoryID} = req.params;
+  try {
+    const foodsByCategory = await foodItemModel
+      .find({category: categoryID})
+      .populate("category");
+    // const category = await CategoryModel.findById(categoryID);
+    return res
+      .status(200)
+      .send({
+        succes: true,
+        // category: category,
+        foodsByCategory: foodsByCategory,
+      })
+      .end();
+  } catch (error) {
+    console.error(error, "error");
+    return res
+      .status(400)
+      .send({
+        success: false,
+        message: error,
+      })
+      .end();
   }
 };
