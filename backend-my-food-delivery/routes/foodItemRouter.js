@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createFoodItem,
+  getAllFoodsCategoryById,
   getFoodItems,
   getFoodItemsById,
   getFoodsByCategoryId,
@@ -10,6 +11,7 @@ export const foodItemRouter = express.Router();
 
 foodItemRouter
   .post("/", createFoodItem)
-  .get("/", getFoodItems)
+  // .get("/", getFoodItems)
   .get("/:id", getFoodItemsById)
-  .get("/byCategory/:categoryID", getFoodsByCategoryId);
+  .get("/byCategory/:categoryID", getFoodsByCategoryId)
+  .get("/", getAllFoodsCategoryById);

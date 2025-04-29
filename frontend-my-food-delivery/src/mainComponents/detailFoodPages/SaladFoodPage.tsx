@@ -12,26 +12,26 @@ type foodCategorydata = {
   image: string;
 };
 
-export const CoctailsFoodPage = () => {
+export const SaladFoodPage = () => {
   const [oneCategoryFoodPage, setOneCategoryFoodPage] = useState<
     foodCategorydata[]
   >([]);
 
-  const fetchCoctailsFoodPage = async () => {
+  const fetchSaladFoodPage = async () => {
     const res = await axiosInstance.get(
-      `foodItem/byCategory/6801e08bea00556a8dd1ea2d`
+      `foodItem/byCategory/68071479e65db822ceeefe47`
     );
     setOneCategoryFoodPage(res.data.foodsByCategory);
   };
 
   useEffect(() => {
-    fetchCoctailsFoodPage();
+    fetchSaladFoodPage();
   }, []);
 
   return (
     <div className="flex-col flex gap-3">
       <>
-        <p className="text-[30px] text-white font-semibold">Coctails</p>
+        <p className="text-[30px] text-white font-semibold">Pizzas</p>
       </>
       <div className="flex flex-wrap gap-5">
         {oneCategoryFoodPage.map((value, index) => {

@@ -1,4 +1,4 @@
-import {CoctailsFoodPage} from "@/mainComponents";
+import {AllFoodsPage} from "@/mainComponents/detailFoodPages/AllFoodsPage";
 import {FoodCategoriesList} from "@/mainComponents/elements";
 
 export default function Home() {
@@ -10,8 +10,8 @@ export default function Home() {
           className="rounded-3xl w-full h-[570px]"
         ></img>
         <FoodCategoriesList />
-        <div className="flex-wrap flex gap-2 size-fit">
-          <CoctailsFoodPage />
+        <div className="flex-wrap flex gap-5 size-fit">
+          <AllFoodsPage />
         </div>
       </div>
     </div>

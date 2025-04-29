@@ -1,3 +1,5 @@
+import {Types} from "mongoose";
+import {CategoryModel} from "../model/foodCategoryModel.js";
 import {foodItemModel} from "../model/foodItemModel.js";
 
 export const createFoodItem = async (req, res) => {
@@ -86,6 +88,47 @@ export const getFoodsByCategoryId = async (req, res) => {
         succes: true,
         // category: category,
         foodsByCategory: foodsByCategory,
+      })
+      .end();
+  } catch (error) {
+    console.error(error, "error");
+    return res
+      .status(400)
+      .send({
+        success: false,
+        message: error,
+      })
+      .end();
+  }
+};
+export const getAllFoodsCategoryById = async (req, res) => {
+  const {categoryID} = req.query;
+  const match = categoryID;
+  const filter = match
+    ? {
+        $match: {_id: new Types.ObjectId(match)},
+      }
+    : {
+        $match: {},
+      };
+  try {
+    const food = await CategoryModel.aggregate([
+      filter,
+      {
+        $lookup: {
+          from: "foodlists",
+          localField: "_id",
+          foreignField: "category",
+          as: "foods",
+        },
+      },
+      {$project: {name: 1, foods: 1}},
+    ]);
+    return res
+      .status(200)
+      .send({
+        success: true,
+        food: food,
       })
       .end();
   } catch (error) {
