@@ -2,7 +2,7 @@
 
 import {useState, useEffect} from "react";
 import {axiosInstance} from "@/lib/utils";
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 
 type foodCategoryDataType = {
   _id: string;
@@ -21,9 +21,14 @@ export const FoodCategoriesList = () => {
   useEffect(() => {
     fetchfoodCategoryData();
   }, []);
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const handleID = (_id: string) => {
-    router.push(`?categoryID=${_id}`);
+  const id = searchParams.get("categoryID");
+
+  const handleCategoryID = (_id: string) => {
+    {
+      id == _id ? router.push("/") : router.push(`?categoryID=${_id}`);
+    }
   };
   return (
     <div className="flex-col flex gap-3">
@@ -32,7 +37,7 @@ export const FoodCategoriesList = () => {
         {foodCategoryData.map((value, index) => {
           return (
             <button
-              onClick={() => handleID(value._id)}
+              onClick={() => handleCategoryID(value._id)}
               key={index}
               className="min-w-[155px] bg-white rounded-full h-[46px] cursor-pointer hover:scale-105 ease-in-out duration-300 hover:bg-red-500"
             >

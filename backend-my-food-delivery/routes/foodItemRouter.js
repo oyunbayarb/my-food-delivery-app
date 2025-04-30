@@ -11,7 +11,7 @@ export const foodItemRouter = express.Router();
 
 foodItemRouter
   .post("/", createFoodItem)
-  // .get("/", getFoodItems)
+  // .get("/allFoods", getFoodItems)
   .get("/:id", getFoodItemsById)
   .get("/byCategory/:categoryID", getFoodsByCategoryId)
   .get("/", getAllFoodsCategoryById);

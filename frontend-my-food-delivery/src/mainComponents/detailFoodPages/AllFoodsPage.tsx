@@ -2,7 +2,7 @@
 
 import {useEffect, useState} from "react";
 import {axiosInstance} from "@/lib/utils";
-import {FoodCategoriesList, OneFoodCard} from "../elements";
+import {OneFoodCard} from "../elements";
 import {useSearchParams} from "next/navigation";
 
 type food = {
