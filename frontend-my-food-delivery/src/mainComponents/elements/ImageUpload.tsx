@@ -1,6 +1,6 @@
 "use client";
 
-import {uploadImage} from "@/utils/image-upload";
+import {uploadImage} from "../../../../backend-my-food-delivery/utils/image-upload";
 import {ChangeEvent, useState} from "react";
 
 export const ImageUpload = () => {

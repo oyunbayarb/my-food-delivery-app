@@ -1,5 +1,9 @@
 import {AllFoodsPage} from "@/mainComponents/detailFoodPages/AllFoodsPage";
-import {FoodCategoriesList} from "@/mainComponents/elements";
+import {
+  FoodCart,
+  FoodCartOrderPage,
+  FoodCategoriesList,
+} from "@/mainComponents/elements";
 
 export default function Home() {
   return (
@@ -11,7 +15,8 @@ export default function Home() {
         ></img>
         <FoodCategoriesList />
         <div className="flex-wrap flex gap-5 size-fit">
-          <AllFoodsPage />
+          {/* <AllFoodsPage /> */}
+          <FoodCartOrderPage />
         </div>
       </div>
     </div>

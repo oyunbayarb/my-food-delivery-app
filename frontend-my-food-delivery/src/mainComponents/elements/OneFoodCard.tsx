@@ -59,23 +59,23 @@ export const OneFoodCard = ({
           <p className="text-black  text-[16px]">{foodIngredients}</p>
           <DialogDescription className="flex-row flex gap-10 items-center">
             <div className="flex-col flex">
-              <p className="text-black text-nowrap flex text-[24px] font-[600]">
+              <h1 className="text-black text-nowrap flex text-[24px] font-[600]">
                 Total price
-              </p>
+              </h1>
               <p className="text-black text-[16px]">${foodPrice}</p>
             </div>
             <div className="flex justify-center items-center gap-2">
               <Button>
                 <Plus />
               </Button>
-              <p className="text-[25px] text-black">1</p>
+              <h1 className="text-[25px] text-black">1</h1>
               <Button>
                 <Minus />
               </Button>
             </div>
           </DialogDescription>
           <div className="flex pt-40 justify-center">
-            <Button>Add to cart</Button>
+            <button>Add to cart</button>
           </div>
         </DialogHeader>
       </DialogContent>
