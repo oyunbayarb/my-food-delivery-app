@@ -14,23 +14,16 @@ export const CartDetailsPage = () => {
           className="w-[50%] rounded-2xl"
           src="https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg?w=300"
         ></img>
-        <div className="flex flex-col">
-          <div className="w-[50%] flex-col flex">
-            <div className="flex-row flex justify-between">
-              <p className="text-red-600 text-[15px]">Sunshine Stackers</p>
-              <CircleX className="size-5 text-black ursor-pointer hover:scale-105 ease-in-out duration-300 hover:text-red-500" />
-            </div>
-
-            <p className="text-black text-[10px]">
-              Fluffy pancakes stacked with fruits, cream, syrup, and powdered
-              sugar.
-            </p>
-          </div>
-
-          <div className="w-full flex-row flex">
-            <Plus className="size-6 text-black" />
-            <p className="text-black">1</p>
-            <Minus className="size-6 text-black" />
+        <div className="flex w-full flex-col gap-2">
+          <p className="text-red-500">Sunshine Stackers</p>
+          <p className="text-black text-[10px]">
+            Fluffy pancakes stacked with fruits, cream, syrup, and powdered
+            sugar.
+          </p>
+          <div className="flex-row flex items-center text-black gap-2">
+            <Plus />
+            <p className="text-[20px]">1</p>
+            <Minus />
           </div>
         </div>
       </div>
